@@ -9,21 +9,11 @@ html {
 body {
   width: 50cm;
   height: 70.7cm;
+  overflow: scroll;
   background: #fff;
   margin: auto;
-  margin-top: calc(50vh - 35cm);
-  padding: 3cm;
+  padding: 2cm;
 }
-
-/* .title-area {
-    width: 35%;
-    margin: 0 0 2cm 0;
-}
-
-.title-area>.title {
-    font-size: 52pt;
-    margin: 0 0 0.25cm 0;
-} */
 
 .title-area>.description {
   font-size: 18pt;
@@ -40,6 +30,6 @@ body {
 }
 
 svg {
-  width: 1600px;
+  width: 1730px;
   height: 250px;
 }

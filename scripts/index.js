@@ -92,6 +92,7 @@ const pos = {
   'edit': 'v',
   'war': 'n',
   'requires': 'v',
+  'transition': 'n',
 }
 let linkCnt = 0;
 
@@ -114,12 +115,24 @@ function main () {
     const svg = d3.select(`#section-${i + 1}`);
     drawNodes(svg, nodes);
     drawLinks(svg, links, nodes);
+    svg.append('circle').attrs({
+      cx: 1730,
+      cy: 250,
+      r: 0.1,
+      c: '#fff',
+      opacity: 0
+    });
+
+    /* !!!! 다운로드 !!!! */
+    // const svgObj = document.getElementById(`section-${i + 1}`);
+    // download(`art-${i + 1}.svg`, svgObj.outerHTML);
+    // console.log(svgObj);
   }
 }
 
 
 function drawNodes (svg, nodes) {
-  const W = 1600;
+  const W = 1730;
   const H = 250;
   _.forEach(nodes, node => {
     const color = colormap[pos[node.value]];
@@ -131,8 +144,8 @@ function drawNodes (svg, nodes) {
     });
     svg.append('text').text(node.value).attrs({
       x: (node.position + 1) * W / 21,
-      y: H - 50,
-      size: 10,
+      y: H - 30,
+      size: 12,
       'text-anchor': 'middle',
       'alignment-baseline': 'hanging'
     });
@@ -143,7 +156,7 @@ function drawLinks (svg, links, nodes) {
   const linkArr = _.values(links);
   const sorted = _.sortBy(linkArr, (e) => -e.value);
   const sliced = sorted.slice(0, 30);
-  const W = 1600;
+  const W = 1730;
   const H = 250;
 
   const lineFunction = d3.line()
@@ -191,14 +204,6 @@ function drawLinks (svg, links, nodes) {
       .attr("offset", "100%")
       .attr("stop-color", colormap[pos[link.to]])
       .attr("stop-opacity", 1);
-
-    if (link.from === 'edits') {
-      console.log(link);
-      console.log(pos[link.from]);
-      console.log(pos[link.to]);
-    }
-    console.log(colormap[pos[link.from]]);
-    console.log(colormap[pos[link.to]]);
 
     svg.append("path")
       .attr("d", lineFunction(lineData))
@@ -300,7 +305,9 @@ function makeUsable (word) {
     .replace(/\[/g, "")
     .replace(/\]/g, "")
     .replace(/\(/g, "")
-    .replace(/\)/g, "");
+    .replace(/\)/g, "")
+    .replace(/-/g, "")
+    ;
 }
 
 function getAllIndexes (arr, val) {
@@ -309,4 +316,19 @@ function getAllIndexes (arr, val) {
     indexes.push(i);
   }
   return indexes;
+}
+
+function download (filename, text) {
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  pom.setAttribute('download', filename);
+
+  if (document.createEvent) {
+    var event = document.createEvent('MouseEvents');
+    event.initEvent('click', true, true);
+    pom.dispatchEvent(event);
+  }
+  else {
+    pom.click();
+  }
 }
