@@ -133,7 +133,7 @@ function main () {
 
 function drawNodes (svg, nodes) {
   const W = 1730;
-  const H = 250;
+  const H = 230;
   _.forEach(nodes, node => {
     const color = colormap[pos[node.value]];
     svg.append('circle').attrs({
@@ -157,7 +157,7 @@ function drawLinks (svg, links, nodes) {
   const sorted = _.sortBy(linkArr, (e) => -e.value);
   const sliced = sorted.slice(0, 30);
   const W = 1730;
-  const H = 250;
+  const H = 230;
 
   const lineFunction = d3.line()
     .x(function (d) { return d.x; })

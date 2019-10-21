@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 html {
@@ -15,13 +16,30 @@ body {
   padding: 2cm;
 }
 
+.title-area {
+  width: 50%;
+  margin-bottom: 1.5cm;
+}
+
+.title-area>.title {
+  font-size: 72pt;
+  font-weight: 800;
+}
+
 .title-area>.description {
-  font-size: 18pt;
+  font-size: 36pt;
   margin: 0 0 0.25cm 0;
+  font-weight: 300;
 }
 
 .section {
-  height: 9cm;
+  height: 8cm;
+  margin-bottom: 0.5cm;
+}
+
+.section>.section-title {
+  font-size: 24pt;
+  font-weight: 300;
 }
 
 .section-drawing {
@@ -29,7 +47,7 @@ body {
   height: 100%;
 }
 
-svg {
+.section-drawing>svg {
   width: 1730px;
-  height: 250px;
+  height: 230px;
 }
