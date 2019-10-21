@@ -17,12 +17,14 @@ body {
 }
 
 .title-area {
-  width: 50%;
-  margin-bottom: 1.5cm;
+  /* margin-bottom: 1.5cm; */
+  height: 230px;
+  display: flex;
 }
 
 .title-area>.title {
-  font-size: 72pt;
+  flex: 3.6;
+  font-size: 96pt;
   font-weight: 800;
 }
 
@@ -30,6 +32,15 @@ body {
   font-size: 36pt;
   margin: 0 0 0.25cm 0;
   font-weight: 300;
+}
+
+.title-area>svg {
+  flex: 6.4;
+  /* border: 1px solid #aaa; */
+}
+
+.legend-area {
+  width: 50%;
 }
 
 .section {

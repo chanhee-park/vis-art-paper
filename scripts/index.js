@@ -96,12 +96,14 @@ const pos = {
 }
 let linkCnt = 0;
 
+// colormap mode 1
 const colormap = {
   n: '#4e79a7',
   v: '#e15759',
   a: '#59a14f',
   x: '#777777'
 }
+
 
 main();
 
@@ -113,17 +115,18 @@ function main () {
     const nodes = getNodes(ranked);
     const links = getLinks(nodes, usableWords);
     const svg = d3.select(`#section-${i + 1}`);
-    drawNodes(svg, nodes);
     drawLinks(svg, links, nodes);
-    svg.append('circle').attrs({
-      cx: 1730,
-      cy: 230,
-      r: 0.1,
-      c: '#fff',
-      opacity: 0
-    });
+    drawNodes(svg, nodes);
 
     /* !!!! 다운로드 !!!! */
+    // svg.append('circle').attrs({
+    //   cx: 1730,
+    //   cy: 230,
+    //   r: 0.1,
+    //   c: '#fff',
+    //   opacity: 0
+    // });
+
     // const svgObj = document.getElementById(`section-${i + 1}`);
     // download(`art-${i + 1}.svg`, svgObj.outerHTML);
     // console.log(svgObj);
@@ -141,18 +144,17 @@ function drawNodes (svg, nodes) {
     svg.append('circle').attrs({
       cx: x,
       cy: y,
-      r: Math.sqrt(node.size) * 7,
+      r: Math.sqrt(node.size) * 8,
       fill: color,
     });
     // https://bl.ocks.org/emmasaunders/0016ee0a2cab25a643ee9bd4855d3464
     svg.append('text').text(node.value).attrs({
-      'text-anchor': 'start',
-      'alignment-baseline': 'central',
-      'font-size': '21px',
+      'text-anchor': 'middle',
+      'alignment-baseline': 'hanging',
+      'font-size': '18px',
       'font-family': "Noto Sans KR",
       'font-weight': 100,
       "transform": `translate(${x},${y + 30}) rotate(30)`,
-
     });
   })
 }
@@ -179,14 +181,14 @@ function drawLinks (svg, links, nodes) {
 
     const lineData = [
       { x: fromPosition, y: H - 100 },
-      { x: midPostion - 10, y: 30 },
-      { x: midPostion + 10, y: 30 },
+      { x: midPostion - 20, y: 30 },
+      { x: midPostion + 20, y: 30 },
       { x: toPostion, y: H - 100 }
     ];
 
     let stWidth = (link.value) * (link.value);
     stWidth = stWidth > 30 ? 30 : stWidth;
-    // stWidth = stWidth < 1 ? 1 : stWidth;
+    stWidth = stWidth < 3 ? 3 : stWidth;
 
     const id = `svgGradient-${linkCnt}`;
 
