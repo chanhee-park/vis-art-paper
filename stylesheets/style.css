@@ -33,7 +33,7 @@ body {
 }
 
 .section {
-  height: 8cm;
+  height: 8.3cm;
   margin-bottom: 0.5cm;
 }
 
@@ -42,12 +42,8 @@ body {
   font-weight: 300;
 }
 
-.section-drawing {
-  width: 100%;
-  height: 100%;
-}
-
 .section-drawing>svg {
   width: 1730px;
   height: 230px;
+  margin: 10px 0 0 0
 }

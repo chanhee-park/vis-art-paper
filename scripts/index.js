@@ -117,7 +117,7 @@ function main () {
     drawLinks(svg, links, nodes);
     svg.append('circle').attrs({
       cx: 1730,
-      cy: 250,
+      cy: 230,
       r: 0.1,
       c: '#fff',
       opacity: 0
@@ -136,18 +136,19 @@ function drawNodes (svg, nodes) {
   const H = 230;
   _.forEach(nodes, node => {
     const color = colormap[pos[node.value]];
+    const x = (node.position + 1) * W / 21;
+    const y = H - 100;
     svg.append('circle').attrs({
-      cx: (node.position + 1) * W / 21,
-      cy: H - 70,
+      cx: x,
+      cy: y,
       r: Math.sqrt(node.size) * 7,
       fill: color,
     });
+    // https://bl.ocks.org/emmasaunders/0016ee0a2cab25a643ee9bd4855d3464
     svg.append('text').text(node.value).attrs({
-      x: (node.position + 1) * W / 21,
-      y: H - 30,
-      size: 12,
-      'text-anchor': 'middle',
-      'alignment-baseline': 'hanging'
+      'text-anchor': 'start',
+      'alignment-baseline': 'central',
+      "transform": `translate(${x},${y + 40}) rotate(30)`,
     });
   })
 }
@@ -173,16 +174,15 @@ function drawLinks (svg, links, nodes) {
     const midPostion = (fromPosition + toPostion) / 2;
 
     const lineData = [
-      { x: fromPosition, y: H - 70 },
+      { x: fromPosition, y: H - 100 },
       { x: midPostion - 10, y: 30 },
       { x: midPostion + 10, y: 30 },
-      { x: toPostion, y: H - 70 }
+      { x: toPostion, y: H - 100 }
     ];
 
     let stWidth = (link.value) * (link.value);
     stWidth = stWidth > 30 ? 30 : stWidth;
     // stWidth = stWidth < 1 ? 1 : stWidth;
-
 
     const id = `svgGradient-${linkCnt}`;
 
