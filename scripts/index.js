@@ -148,7 +148,11 @@ function drawNodes (svg, nodes) {
     svg.append('text').text(node.value).attrs({
       'text-anchor': 'start',
       'alignment-baseline': 'central',
-      "transform": `translate(${x},${y + 40}) rotate(30)`,
+      'font-size': '21px',
+      'font-family': "Noto Sans KR",
+      'font-weight': 100,
+      "transform": `translate(${x},${y + 30}) rotate(30)`,
+
     });
   })
 }
