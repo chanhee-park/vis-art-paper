@@ -113,7 +113,7 @@ svg.append('text')
 svg.append('text')
   .text('Size of Keyword Nodes')
   .attrs({
-    x: 370,
+    x: 375,
     y: 150,
     'text-anchor': 'start',
     'alignment-baseline': 'central',
@@ -124,7 +124,7 @@ svg.append('text')
 svg.append('text')
   .text('by Frequencies')
   .attrs({
-    x: 370,
+    x: 375,
     y: 180,
     'text-anchor': 'start',
     'alignment-baseline': 'central',
@@ -137,7 +137,7 @@ for (let cnt = 5; cnt <= 15; cnt += 5) {
   const r = Math.sqrt(cnt) * 8;
   svg.append('circle')
     .attrs({
-      cx: 445,
+      cx: 450,
       cy: 130 - r,
       r: r,
       fill: 'none',
@@ -145,14 +145,14 @@ for (let cnt = 5; cnt <= 15; cnt += 5) {
     });
   svg.append('line')
     .attrs({
-      x1: 445,
+      x1: 450,
       x2: 500,
       y1: 130 - 2 * r,
       y2: 130 - 2 * r,
       stroke: '#aaa'
     })
   svg.append('text').text(cnt).attrs({
-    x: 505,
+    x: 510,
     y: 130 - 2 * r,
     'text-anchor': 'start',
     'alignment-baseline': 'middle',
