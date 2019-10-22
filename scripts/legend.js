@@ -146,7 +146,7 @@ for (let cnt = 5; cnt <= 15; cnt += 5) {
   svg.append('line')
     .attrs({
       x1: 445,
-      x2: 480,
+      x2: 500,
       y1: 130 - 2 * r,
       y2: 130 - 2 * r,
       stroke: '#aaa'
