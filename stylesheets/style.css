@@ -23,8 +23,8 @@ body {
 }
 
 .title-area>.title {
-  flex: 3.6;
-  font-size: 96pt;
+  flex: 5;
+  font-size: 120pt;
   font-weight: 800;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .title-area>svg {
-  flex: 6.4;
+  flex: 5;
   /* border: 1px solid #aaa; */
 }
 
